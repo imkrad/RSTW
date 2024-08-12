@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('participants', function (Blueprint $table) {
+        Schema::create('event_lists', function (Blueprint $table) {
             $table->engine = 'InnoDB'; 
             $table->increments('id');
+            $table->string('name');
+            $table->string('schedule');
+            $table->boolean('is_wholeday');
+            $table->boolean('is_alone');
             $table->integer('event_id')->unsigned()->index();
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
-            $table->integer('register_id')->unsigned()->index();
-            $table->foreign('register_id')->references('id')->on('registrations')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('participants');
+        Schema::dropIfExists('event_lists');
     }
 };

@@ -40,5 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LocationBarangaysTableSeeder::class);
 
         $this->call(ListMenusTableSeeder::class);
+        $this->call(EventsTableSeeder::class);
+        $this->call(EventListsTableSeeder::class);
     }
 }

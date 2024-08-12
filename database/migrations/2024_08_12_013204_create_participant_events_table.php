@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('participant_events', function (Blueprint $table) {
             $table->engine = 'InnoDB'; 
             $table->increments('id');
-            $table->string('name');
-            $table->integer('maximum')->default(40);
+            $table->integer('event_id')->unsigned()->index();
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+            $table->integer('participant_id')->unsigned()->index();
+            $table->foreign('participant_id')->references('id')->on('participants')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('participant_events');
     }
 };

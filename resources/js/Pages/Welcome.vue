@@ -1,44 +1,16 @@
 <template>
     <Head title="Science and Technology Scholarship Information System" />
     <div class="layout-wrapper landing">
-        <!-- <section class="section pb-0 hero-section" id="hero" style="height: 500px;">
-            <div class="bg-overlay bg-overlay-pattern"></div>
-            <b-container>
-                <b-row class="justify-content-center">
-                    <b-col lg="8" sm="10">
-                        <div class="text-center">
-                            <h1 class="display-6 fw-semibold mb-1 lh-base">2024
-                                <span class="text-primary">RSTW</span>
-                            </h1>
-                            <div class="lead lh-base">
-                                <p>Siyensya, Teknolohiya at Inobasyon : </p>
-                                <p class="text-muted fs-14 mt-n2">Kabalikat sa Matatag, Maginhawa, at Panatag na Kinabukasan.</p>
-                                <p class="text-muted fs-14 mt-n3">Providing Solutions and Opening Opportunities in the Green Economy</p>
-                            </div>
-
-                            <div class="d-flex gap-2 justify-content-center mt-4">
-                                <b-link href="/auth/signin-basic" class="btn btn-primary">REGISTER NOW </b-link>
-                            </div>
-                        </div>
-                    </b-col>
-                </b-row>
-            </b-container>
-            <div class="position-absolute start-0 end-0 bottom-0 hero-shape-svg">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 0 1440 120">
-                    <g mask="url(&quot;#SvgjsMask1003&quot;)" fill="none">
-                        <path d="M 0,118 C 288,98.6 1152,40.4 1440,21L1440 140L0 140z">
-                        </path>
-                    </g>
-                </svg>
-            </div>
-        </section> -->
-        <section class="section job-hero-section bg-light pb-0" id="hero" style="margin-top: -100px;">
+        <section class="section job-hero-section bg-light pb-0" id="hero" style="margin-top: -170px;">
             <BContainer>
                 <BRow class="justify-content-between align-items-center">
                     <BCol lg="6">
                         <div>
-                            <h1 class="display-6 fw-semibold text-capitalize mb-3 lh-base"><span class="text-primary">DOST-IX</span> RSTW 2024</h1>
+                             <img src="images/logo-sm.png" alt="logo light" height="70">
+                            <img src="images/new.png" alt="logo light" height="90">
+                            <img src="images/logo-dark.png" alt="logo light" height="50">
+                             <hr class="text-muted"/>
+                            <!-- <h1 class="display-6 fw-semibold text-capitalize mb-3 lh-base"><span class="text-primary">DOST-IX</span> RSTW 2024</h1> -->
                             <p class="lead lh-base mb-1">Siyensya, Teknolohiya at Inobasyon :</p>
                             <p class="lead text-muted fs-14 lh-base mb-4">Kabalikat sa Matatag, Maginhawa, at Panatag na Kinabukasan. <br />Providing Solutions and Opening Opportunities in the Green Economy</p>
                             <BButton @click="openRegister()" variant="primary" class="submit-btn w-80 h-100" type="submit">
@@ -46,7 +18,7 @@
 
                             <ul class="treding-keywords list-inline mb-0 mt-3 fs-13">
                                 <li class="list-inline-item text-danger fw-semibold"><i
-                                        class="mdi mdi-tag-multiple-outline align-middle"></i> Zamboanga City :</li>
+                                        class="ri-map-pin-fill align-middle"></i> Zamboanga City :</li>
                                 <li class="list-inline-item">
                                     <BLink href="#">September 5-6, 2024</BLink>
                                 </li>
@@ -56,16 +28,7 @@
                     </BCol>
                     <BCol lg="4">
                         <div class="position-relative home-img text-center mt-5 mt-lg-0">
-                            <BCard no-body class="p-3 rounded shadow-lg inquiry-box">
-                                <div class="d-flex align-items-center">
-                                    <div class="avatar-sm flex-shrink-0 me-3">
-                                        <div class="avatar-title bg-warning-subtle text-warning rounded fs-18">
-                                            <i class="ri-calendar-line"></i>
-                                        </div>
-                                    </div>
-                                    <h5 class="fs-15 lh-base mb-0">Trainings for RSTW</h5>
-                                </div>
-                            </BCard>
+                          
 
                             <img src="/images/job.png" alt="" class="user-img">
 
@@ -85,22 +48,23 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card bg-soft bg-light border shadow-none mb-3">
-                            
-                                <div class="d-flex mt-1">
-                                    <div class="avatar-xs align-self-center">
-                                        <div class="avatar-title rounded bg-transparent"><i
-                                                class="bx bx-news h4 mt-1"></i></div>
-                                    </div>
-                                    <div class="overflow-hidden mr-auto align-self-center">
-                                        <h5 class="fw-semibold fs-12 mt-1">Trainings</h5>
-                                    </div>
+                            <div class="d-flex mt-1">
+                                <div class="avatar-xs align-self-center">
+                                    <div class="avatar-title rounded bg-transparent"><i
+                                            class="bx bx-news h4 mt-1"></i></div>
                                 </div>
+                                <div class="overflow-hidden mr-auto align-self-center">
+                                    <h5 class="fw-semibold fs-12 mt-1">Trainings</h5>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <b-list-group>
-                                <b-list-group-item class="fs-13" v-for="(event,index) in events" v-bind:key="index">{{event.name}} <span class="float-end">{{event.schedule}}</span></b-list-group-item>
-                            </b-list-group>
-                        </div>
+                        <b-list-group>
+                            <b-list-group-item class="fs-13" v-for="(event,index) in events" v-bind:key="index">{{event.name}} :
+                                <ul class="mt-2">
+                                    <li v-for="(list,index1) in event.list" v-bind:key="index1">{{list.name}} <span class="float-end">{{list.schedule}}</span></li>
+                                </ul>
+                            </b-list-group-item>
+                        </b-list-group>
                     </div>
                 </div>
             </div>
@@ -222,65 +186,95 @@
             <i class="ri-arrow-up-line"></i>
         </b-button>
     </div>
-    <BModal v-model="showModal" hide-footer body-class="p-0" header-class="p-0"
-        class="v-modal-custom" size="lg" content-class="border-0 overflow-hidden" centered hide-header-close>
+    <BModal v-model="showModal"  style="--vz-modal-width: 1000px;" hide-footer body-class="p-0" header-class="p-0"
+        class="v-modal-custom" content-class="border-0 overflow-hidden" centered hide-header-close>
         <div class="modal-body login-modal p-5">
-            <h5 class="text-white fs-20 mb-1 mt-n3">Registration Form</h5>
-            <p class="text-white-50 mb-4">Fullout the form carefully?</p>
+            <h5 class="text-white fs-18 mb-1 mt-n4">Registration Form</h5>
+            <p class="text-white-50 fs-12 mb-4">Please fill out the form carefully to ensure all information is accurate.</p>
             <div class="vstack gap-2 justify-content-center">
-               <form class="customform" style="color: white;">
-                    <BRow class="g-3"> 
+               <form class="customform mb-n4" style="color: white;">
+                    <BRow class="g-2"> 
                         <BCol lg="12" class="mt-n2 mb-0">
                             <hr class="text-muted"/>
                         </BCol>
-                        <BCol lg="6" class="mt-n1">
-                            <InputLabel for="name" value="Firstname" :message="form.errors.firstname"/>
-                            <TextInput id="name" v-model="form.firstname" type="text" class="form-control" placeholder="Please enter firstname" @input="handleInput('firstname')" :light="true"/>
+                        <BCol lg="9" class="mt-n1">
+                            <InputLabel for="name" value="Name" :message="form.errors.firstname"/>
+                              <b-row class="g-3 mb-2 mt-n2">
+                                <b-col lg>
+                                    <div class="input-group mb-0">
+                                        <input type="text" v-model="form.firstname" placeholder="Firstname" class="form-control" style="width: 33%;">
+                                        <input type="text" v-model="form.middlename" placeholder="Middlename" class="form-control" style="width: 33%;">
+                                        <input type="text" v-model="form.lastname" placeholder="Lastname" class="form-control" style="width: 33%;">
+                                    </div>
+                                </b-col>
+                            </b-row>
                         </BCol>
-                        <BCol lg="6" class="mt-n1">
-                            <InputLabel for="name" value="Middlename" :message="form.errors.middlename"/>
-                            <TextInput id="name" v-model="form.middlename" type="text" class="form-control" placeholder="Please enter middlename" @input="handleInput('middlename')" :light="true"/>
+                        <BCol lg="3" class="mt-1">
+                            <InputLabel for="name" value="PRC No."/>
+                            <TextInput id="name" v-model="form.prc_no" type="email" class="form-control" placeholder="Please enter prc no." @input="handleInput('email')" :light="true"/>
                         </BCol>
-                        <BCol lg="6" class="mt-0">
-                            <InputLabel for="name" value="Lastname" :message="form.errors.lastname"/>
-                            <TextInput id="name" v-model="form.lastname" type="text" class="form-control" placeholder="Please enter lastname" @input="handleInput('lastname')" :light="true"/>
+                        <BCol lg="3" class="mt-n2">
+                            <InputLabel for="name" value="Affiliation"/>
+                            <TextInput id="name" v-model="form.affiliation" type="text" class="form-control" placeholder="Please enter contact no." @input="handleInput('contact_no')" :light="true"/>
                         </BCol>
-                        <BCol lg="3" class="mt-0">
-                            <InputLabel for="name" value="Age" :message="form.errors.contact_no"/>
-                            <TextInput id="name" v-model="form.age" type="text" class="form-control" placeholder="Please enter age" @input="handleInput('contact_no')" :light="true"/>
-                        </BCol>
-                        <BCol lg="3" class="mt-0">
-                            <InputLabel for="name" value="Sex" :message="form.errors.contact_no"/>
-                            <TextInput id="name" v-model="form.sex" type="text" class="form-control" placeholder="Please enter sex" @input="handleInput('contact_no')" :light="true"/>
-                        </BCol>
-                        <BCol lg="6" class="mt-0">
+                        <BCol lg="3" class="mt-n2">
                             <InputLabel for="name" value="Email Address" :message="form.errors.email"/>
                             <TextInput id="name" v-model="form.email" type="email" class="form-control" placeholder="Please enter email" @input="handleInput('email')" :light="true"/>
                         </BCol>
-                        <BCol lg="6" class="mt-0">
+                        <BCol lg="3" class="mt-n2">
                             <InputLabel for="name" value="Contact no." :message="form.errors.contact_no"/>
                             <TextInput id="name" v-model="form.contact_no" type="text" class="form-control" placeholder="Please enter contact no." @input="handleInput('contact_no')" :light="true"/>
+                        </BCol>
+                        <BCol lg="2" class="mt-n2">
+                            <InputLabel for="name" value="Sex" :message="form.errors.sex"/>
+                            <!-- <TextInput id="name" v-model="form.sex" type="text" class="form-control" placeholder="Please enter sex" @input="handleInput('contact_no')" :light="true"/> -->
+                            <select class="form-select mb-3" v-model="form.sex" aria-label="Default select example" style="min-height: 38.4px !important;">
+                                <option value="null" selected class="text-muted" disabled>Select sex</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </BCol>
+                        <BCol lg="1" class="mt-n2">
+                            <InputLabel for="name" value="Age" :message="form.errors.age"/>
+                            <TextInput id="name" v-model="form.age" type="text" class="form-control" placeholder="Age" @input="handleInput('contact_no')" :light="true"/>
                         </BCol>
                     </BRow>
                </form>
             </div>
         </div>
+        <div class="modal-body border-bottom mt-n4 mb-n2" 
+        style="padding-left: 3rem !important; padding-right: 3rem !important; padding-top: 3.2rem !important; padding-bottom: 1.5rem !important;" >
+            <form class="customform mb-n4">
+               <div class="form-check form-check-dark mb-n2 mt-n2" v-for="(event,index) in events" v-bind:key="index">
+                    <input class="form-check-input" 
+                    :value="event.id" 
+                    v-model="form.lists" 
+                    :disabled="isDisabled(event.id)"
+                    type="checkbox" 
+                    :id="'formCheck'+index">
+                    <label class="form-check-label" :for="'formCheck'+index">{{event.name}}</label>
+                    <ul class="mt-1 mb-3 text-muted fs-11">
+                        <li v-for="(list,index1) in event.list" v-bind:key="index1">{{list.name}} <span class="float-end">{{list.schedule}}</span></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
         <div class="modal-body p-5">
             <form class="customform">
-                <BRow class="g-3"> 
-                    <BCol lg="6" class="mt-n1">
+                <BRow class="g-2 mt-n4"> 
+                    <BCol lg="3" class="mt-n1">
                         <InputLabel for="region" value="Region" :message="form.errors.region_code"/>
                         <Multiselect :options="regions" label="name" v-model="form.region_code" :message="form.errors.region_code" placeholder="Select Region" @input="handleInput('region_code')"/>
                     </BCol>
-                    <BCol lg="6" class="mt-n1">
+                    <BCol lg="3" class="mt-n1">
                         <InputLabel for="province" value="Province" :message="form.errors.province_code"/>
                         <Multiselect :options="provinces" :searchable="true" label="name" v-model="form.province_code" placeholder="Select Province" @input="handleInput('province_code')"/>
                     </BCol>
-                    <BCol lg="6" class="mt-1">
+                    <BCol lg="3" class="mt-n1">
                         <InputLabel for="municipality" value="Municipality" :message="form.errors.municipality_code"/>
                         <Multiselect :options="municipalities" :searchable="true" label="name" v-model="form.municipality_code" placeholder="Select Municipality" @input="handleInput('municipality_code')"/>
                     </BCol>
-                    <BCol lg="6" class="mt-1">
+                    <BCol lg="3" class="mt-n1">
                         <InputLabel for="barangay" value="Barangay" :message="form.errors.barangay_code"/>
                         <Multiselect :options="barangays" :searchable="true" label="name" v-model="form.barangay_code" placeholder="Select Barangay" @input="handleInput('barangay_code')"/>
                     </BCol>
@@ -294,13 +288,35 @@
                     <label class="form-check-label" for="checkTerms">I agree to the <span class="fw-semibold">Terms of Service</span> and Privacy Policy</label>
                 </div>
                 <div class="text-end">
-                    <button class="btn btn-primary btn-md" type="submit" :disabled="!form.check">
+                    <button @click="submit('ok')" class="btn btn-primary btn-md" type="button" :disabled="!form.check">
                         <div class="btn-content">Submit Now</div>
                     </button>
                 </div>
             </form>
         </div>
     </BModal>
+    <b-modal v-model="message" hide-footer class="v-modal-custom" modal-class="zoomIn" body-class="p-0" centered hide-header-close style="z-index: 5000;">
+        <div class="text-end me-4">
+            <button type="button" class="btn-close text-end" @click="check()"></button>
+        </div>
+        <div class="text-center px-5 pt-2">
+            <div class="mt-2">
+                 <div class="avatar-md mx-auto">
+                    <div class="avatar-title rounded-circle bg-light">
+                        <i v-if="$page.props.flash.status" class="ri-checkbox-circle-fill text-success h1 mb-0"></i>
+                        <i v-else class="ri-close-circle-fill text-danger h1 mb-0"></i>
+                    </div>
+                </div>
+                <h5 class="mb-1 mt-4 fs-14">{{$page.props.flash.message }}</h5>
+                <p v-if="$page.props.flash.info" class="text-muted fs-12">{{$page.props.flash.info }}</p>
+            </div>
+        </div>
+        <div class="modal-footer bg-light p-3 mt-5 justify-content-center">
+            <p class="mb-0 text-muted fs-10">Any suggestions please contact
+                <b-link href="fb.com/rjumli.gov" target="_blank" class="link-secondary fw-semibold">Administrator</b-link>
+            </p>
+        </div>
+    </b-modal>
 </template>
 <script>
 import { useForm } from '@inertiajs/vue3';
@@ -325,12 +341,13 @@ export default {
                 affiliation: null,
                 position: null,
                 prc_no: null,
-                region_code: this.region,
+                region_code: null,
                 province_code: null,
                 municipality_code: null,
                 barangay_code: null,
                 address: null,
-                check: false
+                check: false,
+                lists: []
             }),
             provinces: [],
             municipalities: [],
@@ -349,10 +366,18 @@ export default {
         },
     },
     methods: {
+        submit(){
+            this.form.post('/',{
+                preserveScroll: true,
+                onSuccess: (response) => {
+                    this.hide();
+                },
+            });
+        },
         fetchProvince(code){
-            axios.get('/lists/locations/',{
+            axios.get('/locations/',{
                 params: {
-                    option: 'list_province',
+                    option: 'province',
                     code: code
                 }
             })
@@ -362,9 +387,9 @@ export default {
             .catch(err => console.log(err));
         },
         fetchMunicipality(code){
-            axios.get('/lists/locations/',{
+            axios.get('/locations/',{
                 params: {
-                    option: 'list_municipality',
+                    option: 'municipality',
                     code: code
                 }
             })
@@ -374,9 +399,9 @@ export default {
             .catch(err => console.log(err));
         },
         fetchBarangay(code){
-            axios.get('/lists/locations/',{
+            axios.get('/locations/',{
                 params: {
-                    option: 'list_barangay',
+                    option: 'barangay',
                     code: code
                 }
             })
@@ -396,6 +421,19 @@ export default {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         },
+        isDisabled(eventId) {
+           if (eventId === 1) {
+            return this.form.lists.includes(2) || this.form.lists.includes(3);
+            }
+            return this.form.lists.includes(1);
+        },
+        hide(){
+            this.showModal = false;
+        },
+        check(){
+            this.$page.props.flash = {};
+            this.message = false;
+        }
     },
     mounted() {
         let backtoTop = document.getElementById("back-to-top");
@@ -420,6 +458,11 @@ export default {
                 }
             }
         });
+    },
+    computed: {
+        message() {
+            return (this.$page.props.flash.message) ?  true : false;
+        }
     },
 };
 </script>
