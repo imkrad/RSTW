@@ -280,7 +280,7 @@
                     </BCol>
                     <BCol lg="12" class="mt-1">
                         <InputLabel for="address" value="Address" :message="form.errors.address"/>
-                        <TextInput id="address" v-model="form.address" type="text" class="form-control" placeholder="Please enter address" @input="handleInput('address')" :light="true"/>
+                        <TextInput id="address" v-model="form.address" type="text" class="form-control" placeholder="Please enter street/house no." @input="handleInput('address')" :light="true"/>
                     </BCol>
                 </BRow>
                 <div class="mt-2 form-check">
