@@ -6,7 +6,7 @@
                 <BRow class="justify-content-between align-items-center">
                     <BCol lg="6">
                         <div>
-                             <img src="images/logo-sm.png" alt="logo light" height="70">
+                            <img src="images/logo-sm.png" alt="logo light" height="70">
                             <img src="images/new.png" alt="logo light" height="90">
                             <img src="images/logo-dark.png" alt="logo light" height="50">
                              <hr class="text-muted"/>
@@ -28,8 +28,6 @@
                     </BCol>
                     <BCol lg="4">
                         <div class="position-relative home-img text-center mt-5 mt-lg-0">
-                          
-
                             <img src="/images/job.png" alt="" class="user-img">
 
                             <div class="circle-effect">
