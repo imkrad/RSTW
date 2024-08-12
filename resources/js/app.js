@@ -13,7 +13,7 @@ AOS.init({
     duration: 1000
 });
 
-const appName = import.meta.env.VITE_APP_NAME || 'Eulims';
+const appName = import.meta.env.VITE_APP_NAME || 'DOST RSTW';
 
 createInertiaApp({
     resolve: (name) => {
