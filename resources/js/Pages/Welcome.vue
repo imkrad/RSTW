@@ -26,7 +26,7 @@
                             </ul>
                         </div>
                     </BCol>
-                    <BCol lg="4">
+                    <BCol lg="">
                         <div class="position-relative home-img text-center mt-5 mt-lg-0">
                             <img src="/images/job.png" alt="" class="user-img">
 
