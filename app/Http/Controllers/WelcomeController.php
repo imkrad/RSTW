@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Hashids\Hashids;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Participant;
 use App\Services\DropdownService;
 use App\Traits\HandlesTransaction;
 use App\Http\Requests\RegistrationRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\FormSubmissionMail;
 
 class WelcomeController extends Controller
 {
@@ -38,6 +41,10 @@ class WelcomeController extends Controller
                         'event_id' => $list
                     ]);
                 }
+                $hashids = new Hashids('krad',10);
+                $code = $hashids->encode($data->id);
+                $name = $request->firstname.' '.$request->lastname;
+                Mail::to($request->email)->queue(new FormSubmissionMail($name,$code));
             }
 
             return [
