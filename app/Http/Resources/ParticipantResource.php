@@ -16,7 +16,7 @@ class ParticipantResource extends JsonResource
     {
         return [
             'name' => $this->lastname.', '.$this->firstname.' '.$this->middlename[0].'.',
-            'address' => $this->barangay->name.' '.$this->municipality->name.', '.$this->province->name.', '.$this->region->region,
+            'address' => $this->barangay->name.', '.$this->municipality->name.', '.$this->province->name.', '.$this->region->region,
             'email' => $this->email,
             'contact_no' => $this->contact_no,
             'affiliation' => $this->affiliation,
