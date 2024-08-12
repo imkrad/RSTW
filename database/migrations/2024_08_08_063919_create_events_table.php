@@ -16,6 +16,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('maximum')->default(40);
+            $table->integer('count')->default(0);
             $table->timestamps();
         });
     }

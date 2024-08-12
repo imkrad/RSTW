@@ -37,9 +37,12 @@ class WelcomeController extends Controller
             $data = Participant::create($request->all());
             if($data){
                 foreach($request->lists as $list){
-                    $data->events()->create([
+                    $event = $data->events()->create([
                         'event_id' => $list
                     ]);
+                    if($event){
+                        Event::where('id',$list)->increment('count', 1);
+                    }
                 }
                 $hashids = new Hashids('krad',10);
                 $code = $hashids->encode($data->id);

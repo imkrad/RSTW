@@ -245,18 +245,20 @@
         <div class="modal-body border-bottom mt-n4 mb-n2" 
         style="padding-left: 3rem !important; padding-right: 3rem !important; padding-top: 3.2rem !important; padding-bottom: 1.5rem !important;" >
             <form class="customform mb-n4">
-               <div class="form-check form-check-dark mb-n2 mt-n2" v-for="(event,index) in events" v-bind:key="index">
-                    <input class="form-check-input" 
-                    :value="event.id" 
-                    v-model="form.lists" 
-                    :disabled="isDisabled(event.id)"
-                    type="checkbox" 
-                    :id="'formCheck'+index">
-                    <label class="form-check-label" :for="'formCheck'+index">{{event.name}}</label>
-                    <ul class="mt-1 mb-3 text-muted fs-11">
-                        <li v-for="(list,index1) in event.list" v-bind:key="index1">{{list.name}} <span class="float-end">{{list.schedule}}</span></li>
-                    </ul>
-                </div>
+                <template v-for="(event,index) in events" v-bind:key="index">
+                    <div v-if="event.count < event.maximum" class="form-check form-check-dark mb-n2 mt-n2">
+                        <input class="form-check-input" 
+                        :value="event.id" 
+                        v-model="form.lists" 
+                        :disabled="isDisabled(event.id)"
+                        type="checkbox" 
+                        :id="'formCheck'+index">
+                        <label class="form-check-label" :for="'formCheck'+index">{{event.name}}</label>
+                        <ul class="mt-1 mb-3 text-muted fs-11">
+                            <li v-for="(list,index1) in event.list" v-bind:key="index1">{{list.name}} <span class="float-end">{{list.schedule}}</span></li>
+                        </ul>
+                    </div>
+                </template>
             </form>
         </div>
         <div class="modal-body p-5">

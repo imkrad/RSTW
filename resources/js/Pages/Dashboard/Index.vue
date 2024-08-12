@@ -1,5 +1,5 @@
 <template>
-    <b-row>
+    <b-row class="">
         <b-col lg="4" md="6" v-for="(item, index) of events" :key="index">
             <b-card no-body>
                 <b-card-body>
@@ -24,13 +24,108 @@
             </b-card>
         </b-col>
         <b-col lg="12">
-            <b-card>
+            <b-card style="height: calc(100vh - 290px); overflow: auto;">
+                 <b-row class="g-2 mb-2 mt-n2">
+                    <b-col lg>
+                        <div class="input-group mb-1">
+                            <span class="input-group-text"> <i class="ri-search-line search-icon"></i></span>
+                            <input type="text"  placeholder="Search User" class="form-control" style="width: 35%;">
+                            <span  class="input-group-text" v-b-tooltip.hover title="Refresh" style="cursor: pointer;"> 
+                                <i class="bx bx-refresh search-icon"></i>
+                            </span>
+                            <b-button type="button" variant="primary" @click="openCreate">
+                                <i class="ri-add-circle-fill align-bottom me-1"></i> Export
+                            </b-button>
+                        </div>
+                    </b-col>
+                </b-row>
+                <div class="table-responsive">
+                    <table class="table table-nowrap align-middle mb-0">
+                        <thead class="table-light">
+                            <tr class="fs-11">
+                                <th></th>
+                                <th style="width: 35%;">Name</th>
+                                <th style="width: 14%;" class="text-center">Email</th>
+                                <th style="width: 15%;" class="text-center">Contact no.</th>
+                                <th style="width: 15%;" class="text-center">Affiliation</th>
+                                <th style="width: 13%;" class="text-center">PRC No.</th>
+                                <th style="width: 7%;" ></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(list,index) in lists" v-bind:key="index">
+                                <td class="text-center"> 
+                                    {{ (meta.current_page - 1) * meta.per_page + index + 1 }}.
+                                </td>
+                                <td>
+                                    <h5 class="fs-13 mb-0 text-dark">{{list.name}}</h5>
+                                    <p class="fs-12 text-muted mb-0">{{list.address}}</p>
+                                </td>
+                                <td class="text-center fs-12">{{list.email}}</td>
+                                <td class="text-center fs-12">{{list.contact_no}}</td>
+                                <td class="text-center fs-12">{{list.affiliation}}</td>
+                                <td class="text-center fs-12">{{list.prc_no}}</td>
+                                <td class="text-end">
+                                    <b-button @click="openEdit(list,index)" variant="soft-warning" v-b-tooltip.hover title="Edit" size="sm">
+                                        <i class="ri-pencil-fill align-bottom"></i>
+                                    </b-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <Pagination class="ms-2 me-2" v-if="meta" @fetch="fetch" :lists="lists.length" :links="links" :pagination="meta" />
+                </div>
             </b-card>
         </b-col>
     </b-row>
 </template>
 <script>
+import _ from 'lodash';
+import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
-    props: ['events']
+    props: ['events'],
+    components: { Pagination}, 
+    data(){
+        return {
+            currentUrl: window.location.origin,
+            lists: [],
+            meta: {},
+            links: {},
+            index: null,
+            filter: {
+                keyword: null
+            }
+        }
+    },
+    watch: {
+        "filter.keyword"(newVal){
+            this.checkSearchStr(newVal)
+        }
+    },
+    created(){
+        this.fetch();
+    },
+    methods: {
+        checkSearchStr: _.debounce(function(string) {
+            this.fetch();
+        }, 300),
+        fetch(page_url){
+            page_url = page_url || '/participants';
+            axios.get(page_url,{
+                params : {
+                    keyword: this.filter.keyword,
+                    count: ((window.innerHeight-350)/58)
+                }
+            })
+            .then(response => {
+                if(response){
+                    this.lists = response.data.data;
+                    this.meta = response.data.meta;
+                    this.links = response.data.links;          
+                }
+            })
+            .catch(err => console.log(err));
+        }
+    }
 }
 </script>
