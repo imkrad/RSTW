@@ -114,7 +114,7 @@ export default {
             axios.get(page_url,{
                 params : {
                     keyword: this.filter.keyword,
-                    count: ((window.innerHeight-350)/58)
+                    count: ((window.innerHeight-450)/58)
                 }
             })
             .then(response => {
