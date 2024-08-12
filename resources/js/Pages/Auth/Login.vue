@@ -15,7 +15,7 @@
                                     </div>
                                     <div class="col-10">
                                         <div class="text-primary mt-1">
-                                            <h4 class="fs-16 fw-semibold">DOST - RSTW</h4>
+                                            <h4 class="fs-16 fw-semibold">DOSTIX - RSTW</h4>
                                             <p class="mt-n2">Information Management System</p>
                                         </div>
                                     </div>
