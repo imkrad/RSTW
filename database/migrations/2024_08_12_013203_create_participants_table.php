@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('affiliation')->nullable();
             $table->string('prc_no')->nullable();
+            $table->string('address')->nullable();
             $table->string('barangay_code')->nullable()->constrained();
             $table->foreign('barangay_code')->references('code')->on('location_barangays')->onDelete('cascade');
             $table->string('municipality_code')->nullable()->constrained();
