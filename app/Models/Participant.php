@@ -19,6 +19,7 @@ class Participant extends Model
         'email',
         'affiliation',
         'prc_no',
+        'address',
         'barangay_code',
         'municipality_code',
         'province_code',
