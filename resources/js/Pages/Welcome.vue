@@ -285,7 +285,7 @@
                 </BRow>
                 <div class="mt-2 form-check">
                     <input type="checkbox" v-model="form.check" class="form-check-input" id="checkTerms">
-                    <label @click="tos = true" class="form-check-label" for="checkTerms">I agree to the <span class="fw-semibold">Terms of Service</span> and Privacy Policy</label>
+                    <label class="form-check-label" for="checkTerms">I agree to the <span class="fw-semibold" @click="tos = true">Terms of Service</span> and Privacy Policy</label>
                 </div>
                 <div class="text-end">
                     <button @click="submit('ok')" class="btn btn-primary btn-md" type="button" :disabled="!form.check">
