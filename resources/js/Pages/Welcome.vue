@@ -210,7 +210,7 @@
                             </b-row>
                         </BCol>
                         <BCol lg="3" class="mt-1">
-                            <InputLabel for="name" value="PRC No."/>
+                            <InputLabel for="name" value="PRC Registration no."/>
                             <TextInput id="name" v-model="form.prc_no" type="email" class="form-control" placeholder="(Optional)" @input="handleInput('email')" :light="true"/>
                         </BCol>
                         <BCol lg="3" class="mt-n2">
