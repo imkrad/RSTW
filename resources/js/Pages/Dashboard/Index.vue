@@ -3,7 +3,7 @@
         <b-col lg="4" md="6" v-for="(item, index) of events" :key="index">
             <b-card no-body>
                 <b-card-body>
-                    <div class="d-flex align-items-center" style="cursor: pointer;">
+                    <div @click="view(item.id)" class="d-flex align-items-center" style="cursor: pointer;">
                         <div class="avatar-sm flex-shrink-0">
                             <span class="avatar-title bg-primary rounded-circle fs-3">
                                 <i :class="`ri-bill-line align-middle`"></i>
@@ -29,7 +29,7 @@
                     <b-col lg>
                         <div class="input-group mb-1">
                             <span class="input-group-text"> <i class="ri-search-line search-icon"></i></span>
-                            <input type="text"  placeholder="Search User" class="form-control" style="width: 35%;">
+                            <input type="text" v-model="filter.keyword" placeholder="Search User" class="form-control" style="width: 35%;">
                             <span  class="input-group-text" v-b-tooltip.hover title="Refresh" style="cursor: pointer;"> 
                                 <i class="bx bx-refresh search-icon"></i>
                             </span>
@@ -93,7 +93,8 @@ export default {
             links: {},
             index: null,
             filter: {
-                keyword: null
+                keyword: null,
+                event: null
             }
         }
     },
@@ -113,6 +114,7 @@ export default {
             page_url = page_url || '/participants';
             axios.get(page_url,{
                 params : {
+                    event: this.filter.event,
                     keyword: this.filter.keyword,
                     count: ((window.innerHeight-450)/58)
                 }
@@ -125,6 +127,10 @@ export default {
                 }
             })
             .catch(err => console.log(err));
+        },
+        view(item){
+            this.filter.event = item;
+            this.fetch();
         }
     }
 }

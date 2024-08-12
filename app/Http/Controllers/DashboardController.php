@@ -32,6 +32,11 @@ class DashboardController extends Controller
             ->when($request->keyword, function ($query, $keyword) {
                 $query->where('firstname', 'LIKE', "%{$keyword}%")->orWhere('lastname', 'LIKE', "%{$keyword}%");
             })
+            ->when($request->event, function ($query, $event) {
+                $query->whereHas('events',function ($query) use ($event) {
+                    $query->where('event_id',$event);
+                });
+            })
             ->paginate($request->count)
         );
         return $data;
