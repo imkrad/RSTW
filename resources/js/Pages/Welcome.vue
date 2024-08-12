@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <b-list-group>
-                            <b-list-group-item class="fs-13" v-for="(event,index) in events" v-bind:key="index">{{event.name}} : <span v-if="event.maximum == event.count" class="badge bg-danger">Full</span>
+                            <b-list-group-item class="fs-13" v-for="(event,index) in events" v-bind:key="index">{{event.name}} : <span v-if="event.maximum >= event.count" class="badge bg-danger">Full</span>
                                 <ul class="mt-2">
                                     <li v-for="(list,index1) in event.list" v-bind:key="index1">{{list.name}} <span class="badge bg-danger"></span> <span class="float-end">{{list.schedule}}</span></li>
                                 </ul>

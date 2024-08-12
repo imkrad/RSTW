@@ -66,8 +66,11 @@
                                 <td class="text-center fs-12">{{list.affiliation}}</td>
                                 <td class="text-center fs-12">{{list.prc_no}}</td>
                                 <td class="text-end">
-                                    <b-button @click="openEdit(list,index)" variant="soft-warning" v-b-tooltip.hover title="Edit" size="sm">
-                                        <i class="ri-pencil-fill align-bottom"></i>
+                                    <b-button @click="openEdit(list)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1">
+                                        <i class="ri-eye-fill align-bottom"></i>
+                                    </b-button>
+                                    <b-button @click="openDelete(list.index)" variant="soft-danger" v-b-tooltip.hover title="View" size="sm">
+                                        <i class="ri-delete-bin-fill align-bottom"></i>
                                     </b-button>
                                 </td>
                             </tr>
@@ -81,10 +84,11 @@
 </template>
 <script>
 import _ from 'lodash';
+import Delete from './Delete.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
     props: ['events'],
-    components: { Pagination}, 
+    components: { Pagination, Delete}, 
     data(){
         return {
             currentUrl: window.location.origin,
