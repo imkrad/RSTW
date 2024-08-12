@@ -50,7 +50,7 @@ class WelcomeController extends Controller
             return [
                 'data' => $data,
                 'message' => 'Registration was completed!', 
-                'info' => "You've successfully created the new request."
+                'info' => "A confirmation has been sent to your email. Please keep the email as proof of registration."
             ];
         });
 

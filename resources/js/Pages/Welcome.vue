@@ -312,9 +312,7 @@
             </div>
         </div>
         <div class="modal-footer bg-light p-3 mt-5 justify-content-center">
-            <p class="mb-0 text-muted fs-10">Any suggestions please contact
-                <b-link href="fb.com/rjumli.gov" target="_blank" class="link-secondary fw-semibold">Administrator</b-link>
-            </p>
+            <p class="mb-0 text-muted fs-10">Thank you for signing up! We look forward to your participation</p>
         </div>
     </b-modal>
     <b-modal v-model="tos" hide-footer size="lg" class="v-modal-custom" modal-class="zoomIn" body-class="p-0" centered hide-header-close style="z-index: 5000;">
@@ -390,6 +388,8 @@ export default {
             this.form.post('/',{
                 preserveScroll: true,
                 onSuccess: (response) => {
+                    this.form.clearErrors();
+                    this.form.reset();
                     this.hide();
                 },
             });
