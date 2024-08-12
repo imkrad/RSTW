@@ -24,7 +24,7 @@ class ListMenusTableSeeder extends Seeder
                 'name' => 'Dashboard',
                 'icon' => 'ri-apps-line',
                 'route' => '/executive',
-                'path' => 'Modules/Executive/Dashboard',
+                'path' => 'Dashboard',
                 'group' => 'Menu',
                 'module' => 'Executive',
                 'order' => 1,
