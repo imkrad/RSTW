@@ -211,11 +211,11 @@
                         </BCol>
                         <BCol lg="3" class="mt-1">
                             <InputLabel for="name" value="PRC No."/>
-                            <TextInput id="name" v-model="form.prc_no" type="email" class="form-control" placeholder="Please enter prc no." @input="handleInput('email')" :light="true"/>
+                            <TextInput id="name" v-model="form.prc_no" type="email" class="form-control" placeholder="(Optional)" @input="handleInput('email')" :light="true"/>
                         </BCol>
                         <BCol lg="3" class="mt-n2">
                             <InputLabel for="name" value="Affiliation"/>
-                            <TextInput id="name" v-model="form.affiliation" type="text" class="form-control" placeholder="Please enter contact no." @input="handleInput('contact_no')" :light="true"/>
+                            <TextInput id="name" v-model="form.affiliation" type="text" class="form-control" placeholder="Please enter affiliation" @input="handleInput('contact_no')" :light="true"/>
                         </BCol>
                         <BCol lg="3" class="mt-n2">
                             <InputLabel for="name" value="Email Address" :message="form.errors.email"/>
@@ -285,7 +285,7 @@
                 </BRow>
                 <div class="mt-2 form-check">
                     <input type="checkbox" v-model="form.check" class="form-check-input" id="checkTerms">
-                    <label class="form-check-label" for="checkTerms">I agree to the <span class="fw-semibold">Terms of Service</span> and Privacy Policy</label>
+                    <label @click="tos = true" class="form-check-label" for="checkTerms">I agree to the <span class="fw-semibold">Terms of Service</span> and Privacy Policy</label>
                 </div>
                 <div class="text-end">
                     <button @click="submit('ok')" class="btn btn-primary btn-md" type="button" :disabled="!form.check">
@@ -315,6 +315,25 @@
             <p class="mb-0 text-muted fs-10">Any suggestions please contact
                 <b-link href="fb.com/rjumli.gov" target="_blank" class="link-secondary fw-semibold">Administrator</b-link>
             </p>
+        </div>
+    </b-modal>
+    <b-modal v-model="tos" hide-footer size="lg" class="v-modal-custom" modal-class="zoomIn" body-class="p-0" centered hide-header-close style="z-index: 5000;">
+        <div class="text-end me-4">
+            <button type="button" class="btn-close text-end" @click="tos = false"></button>
+        </div>
+        <div class="px-5 pt-2 mb-5">
+            <h4 class="mb-4">Terms of Service</h4>
+            <span class="">I hereby give my consent for the collection, processing, and storage of my personal data in accordance with the provisions of the Data Privacy Act of the Philippines (Republic Act No. 10173) and its implementing rules and regulations.
+            I understand that my personal data may include but is not limited to my name, contact information, identification documents, and any other information that may be considered personal under the law.
+            I authorize DOST-IX to collect, use, and disclose my personal data for the following purposes:</span>
+            <br /><br />
+            1. Communication<br />
+            2. Account Management<br />
+            3. Legal Compliance<br />
+            4. Security <br /><br />
+            I understand that my personal data will be used solely for the stated purposes and will not be shared with any third parties without my explicit consent, except as required by law.<br /><br />
+
+            By checking the box below or providing my electronic consent, I acknowledge that I have read and understood this consent statement and agree to the processing of my personal data as described herein.
         </div>
     </b-modal>
 </template>
@@ -352,6 +371,7 @@ export default {
             provinces: [],
             municipalities: [],
             barangays: [],
+            tos: false
         };
     },
      watch: {
