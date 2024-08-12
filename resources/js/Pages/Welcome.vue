@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <b-list-group>
-                            <b-list-group-item class="fs-13" v-for="(event,index) in events" v-bind:key="index">{{event.name}} : <span v-if="event.maximum >= event.count" class="badge bg-danger">Full</span>
+                            <b-list-group-item class="fs-13" v-for="(event,index) in events" v-bind:key="index">{{event.name}} : <span v-if="event.maximum <= event.count" class="badge bg-danger">Full</span>
                                 <ul class="mt-2">
                                     <li v-for="(list,index1) in event.list" v-bind:key="index1">{{list.name}} <span class="badge bg-danger"></span> <span class="float-end">{{list.schedule}}</span></li>
                                 </ul>
@@ -184,7 +184,14 @@
             <i class="ri-arrow-up-line"></i>
         </b-button>
     </div>
-    <BModal v-model="showModal"  style="--vz-modal-width: 1000px;" hide-footer body-class="p-0" header-class="p-0"
+    <b-modal v-model="showModal" hide-footer class="v-modal-custom" modal-class="zoomIn" body-class="p-0" centered  style="z-index: 5000;">
+
+        <div class="modal-body text-center p-5">
+            <div class="alert alert-danger mb-xl-0" role="alert"><strong>Registration is closed.</strong></div>
+    
+        </div>
+    </b-modal>
+    <!-- <BModal v-model="showModal"  style="--vz-modal-width: 1000px;" hide-footer body-class="p-0" header-class="p-0"
         class="v-modal-custom" content-class="border-0 overflow-hidden" centered hide-header-close>
         <div class="modal-body login-modal p-5">
             <h5 class="text-white fs-18 mb-1 mt-n4">Registration Form</h5>
@@ -225,7 +232,6 @@
                         </BCol>
                         <BCol lg="2" class="mt-n2">
                             <InputLabel for="name" value="Sex" :message="form.errors.sex"/>
-                            <!-- <TextInput id="name" v-model="form.sex" type="text" class="form-control" placeholder="Please enter sex" @input="handleInput('contact_no')" :light="true"/> -->
                             <select class="form-select mb-3" v-model="form.sex" aria-label="Default select example" style="min-height: 38.4px !important;">
                                 <option value="null" selected class="text-muted" disabled>Select sex</option>
                                 <option value="Male">Male</option>
@@ -294,7 +300,7 @@
                 </div>
             </form>
         </div>
-    </BModal>
+    </BModal> -->
     <b-modal v-model="message" hide-footer class="v-modal-custom" modal-class="zoomIn" body-class="p-0" centered hide-header-close style="z-index: 5000;">
         <div class="text-end me-4">
             <button type="button" class="btn-close text-end" @click="check()"></button>
