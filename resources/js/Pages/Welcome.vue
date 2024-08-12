@@ -321,9 +321,9 @@
         <div class="text-end me-4">
             <button type="button" class="btn-close text-end" @click="tos = false"></button>
         </div>
-        <div class="px-5 pt-2 mb-5">
-            <h4 class="mb-4">Terms of Service</h4>
-            <span class="">I hereby give my consent for the collection, processing, and storage of my personal data in accordance with the provisions of the Data Privacy Act of the Philippines (Republic Act No. 10173) and its implementing rules and regulations.
+        <div class="px-5 pt-0 mb-5 fs-12">
+            <h5 class="mb-4">Terms of Service</h5>
+            <span class="fs-12">I hereby give my consent for the collection, processing, and storage of my personal data in accordance with the provisions of the Data Privacy Act of the Philippines (Republic Act No. 10173) and its implementing rules and regulations.
             I understand that my personal data may include but is not limited to my name, contact information, identification documents, and any other information that may be considered personal under the law.
             I authorize DOST-IX to collect, use, and disclose my personal data for the following purposes:</span>
             <br /><br />
