@@ -13,5 +13,13 @@ class ParticipantEvent extends Model
         'event_id'
     ];
 
+    public function event()
+    {
+        return $this->belongsTo('App\Models\Event', 'event_id', 'id');
+    }
 
+    public function participant()
+    {
+        return $this->belongsTo('App\Models\Participant', 'participant_id', 'id');
+    }
 }

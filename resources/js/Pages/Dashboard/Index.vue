@@ -33,7 +33,7 @@
                             <span  class="input-group-text" v-b-tooltip.hover title="Refresh" style="cursor: pointer;"> 
                                 <i class="bx bx-refresh search-icon"></i>
                             </span>
-                            <b-button type="button" variant="primary" @click="openCreate">
+                            <b-button @click="openPrint(filter.event)" type="button" variant="primary" >
                                 <i class="ri-add-circle-fill align-bottom me-1"></i> Export
                             </b-button>
                         </div>
@@ -68,7 +68,7 @@
                                 <td class="text-center fs-12">{{list.prc_no}}</td>
                                 <td class="text-center fs-12">{{list.created_at}}</td>
                                 <td class="text-end">
-                                    <b-button @click="openEdit(list)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1">
+                                    <b-button @click="openPrint(filter.event)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1">
                                         <i class="ri-eye-fill align-bottom"></i>
                                     </b-button>
                                     <b-button @click="openDelete(list.index)" variant="soft-danger" v-b-tooltip.hover title="View" size="sm">
@@ -137,7 +137,10 @@ export default {
         view(item){
             this.filter.event = item;
             this.fetch();
-        }
+        },
+        openPrint(id){
+            window.open(this.currentUrl + '/export?id='+id);
+        },
     }
 }
 </script>

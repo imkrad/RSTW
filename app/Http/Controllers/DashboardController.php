@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Participant;
 use Illuminate\Http\Request;
+use App\Exports\ParticipantExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Resources\ParticipantResource;
 
 class DashboardController extends Controller
@@ -40,5 +42,11 @@ class DashboardController extends Controller
             ->get()
         );
         return $data;
+    }
+
+    public function export(Request $request){
+        $id = $request->id;
+        $name = Event::where('id',$id)->value('name');
+        return Excel::download(new ParticipantExport($id), $name.'.xlsx');
     }
 }
