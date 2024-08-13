@@ -12,6 +12,7 @@
             <th style="width: 200px; text-align: center; font-weight: bold; font-size: 11px; padding: 50px; background-color: gray;">Contact no.</th>
             <th style="width: 200px; text-align: center; font-weight: bold; font-size: 11px; padding: 50px; background-color: gray;">PRC no.</th>
             <th style="width: 200px; text-align: center; font-weight: bold; font-size: 11px; padding: 50px; background-color: gray;">Date</th>
+            <th style="width: 400px; text-align: center; font-weight: bold; font-size: 11px; padding: 50px; background-color: gray;">Address</th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +24,7 @@
             <td style="text-align: center;">{{$item->participant->contact_no}}</td>
             <td style="text-align: center;">{{$item->participant->prc_no}}</td>
             <td style="text-align: center;">{{$item->participant->created_at}}</td>
+            <td >{{$item->participant->barangay->name}}, {{$item->participant->municipality->name}}, {{$item->participant->province->name}}, {{$item->participant->region->region}}</td>
         </tr>
         @endforeach
     </tbody>
