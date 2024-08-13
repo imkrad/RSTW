@@ -45,6 +45,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
+                        <div class="alert alert-danger fs-12 alert-dismissible alert-label-icon label-arrow" role="alert"><i class="ri-error-warning-line label-icon"></i><strong>Registration is closed.</strong> All training sessions are fully booked at the moment. Unfortunately, registration is closed. Please check back later for any available openings.</div>
                         <div class="card bg-soft bg-light border shadow-none mb-3">
                             <div class="d-flex mt-1">
                                 <div class="avatar-xs align-self-center">
