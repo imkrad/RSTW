@@ -21,7 +21,8 @@ class ParticipantResource extends JsonResource
             'contact_no' => $this->contact_no,
             'affiliation' => $this->affiliation,
             'prc_no' => $this->prc_no,
-            'events' => $this->events
+            'events' => $this->events,
+            'created_at' => $this->created_at
         ];
     }
 }

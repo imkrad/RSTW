@@ -49,13 +49,14 @@
                                 <th style="width: 15%;" class="text-center">Contact no.</th>
                                 <th style="width: 15%;" class="text-center">Affiliation</th>
                                 <th style="width: 13%;" class="text-center">PRC No.</th>
+                                <th style="width: 13%;" class="text-center">Date</th>
                                 <th style="width: 7%;" ></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="(list,index) in lists" v-bind:key="index">
                                 <td class="text-center"> 
-                                    {{ (meta.current_page - 1) * meta.per_page + index + 1 }}.
+                                    {{ index + 1 }}.
                                 </td>
                                 <td>
                                     <h5 class="fs-13 mb-0 text-dark">{{list.name}}</h5>
@@ -65,6 +66,7 @@
                                 <td class="text-center fs-12">{{list.contact_no}}</td>
                                 <td class="text-center fs-12">{{list.affiliation}}</td>
                                 <td class="text-center fs-12">{{list.prc_no}}</td>
+                                <td class="text-center fs-12">{{list.created_at}}</td>
                                 <td class="text-end">
                                     <b-button @click="openEdit(list)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1">
                                         <i class="ri-eye-fill align-bottom"></i>
@@ -76,7 +78,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <Pagination class="ms-2 me-2" v-if="meta" @fetch="fetch" :lists="lists.length" :links="links" :pagination="meta" />
+                    <!-- <Pagination class="ms-2 me-2" v-if="meta" @fetch="fetch" :lists="lists.length" :links="links" :pagination="meta" /> -->
                 </div>
             </b-card>
         </b-col>
@@ -126,8 +128,8 @@ export default {
             .then(response => {
                 if(response){
                     this.lists = response.data.data;
-                    this.meta = response.data.meta;
-                    this.links = response.data.links;          
+                    //this.meta = response.data.meta;
+                    //this.links = response.data.links;          
                 }
             })
             .catch(err => console.log(err));

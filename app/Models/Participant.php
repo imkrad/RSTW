@@ -67,4 +67,9 @@ class Participant extends Model
     {
         $this->attributes['middlename'] = ucwords(strtolower($value));
     }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return date('M d, Y g:i a', strtotime($value));
+    }
 }

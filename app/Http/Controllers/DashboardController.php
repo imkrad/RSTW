@@ -37,7 +37,7 @@ class DashboardController extends Controller
                     $query->where('event_id',$event);
                 });
             })
-            ->paginate($request->count)
+            ->get()
         );
         return $data;
     }
