@@ -311,7 +311,7 @@
             <b-button @click="agree = true" pill variant="primary" class="btn-label waves-effect waves-light float-end mb-5 mt-n4"><i class="ri-user-smile-line label-icon align-middle rounded-pill fs-16 me-2"></i>Continue</b-button>
         </div>
     </BModal>
-    <b-modal v-model="message" hide-footer class="v-modal-custom" modal-class="zoomIn" body-class="p-0" centered hide-header-close style="z-index: 5000;">
+    <b-modal v-model="message" hide-footer class="v-modal-custom" modal-class="zoomIn" body-class="p-0" centered hide-header-close no-close-on-backdrop style="z-index: 5000;">
         <div class="text-end me-4">
             <button type="button" class="btn-close text-end" @click="check()"></button>
         </div>

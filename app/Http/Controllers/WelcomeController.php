@@ -52,8 +52,8 @@ class WelcomeController extends Controller
 
             return [
                 'data' => $data,
-                'message' => 'Registration was completed!', 
-                'info' => "A confirmation has been sent to your email. Please keep the email as proof of registration."
+                'message' => 'Pre-registration is completed!', 
+                'info' => "A confirmation email has been sent to your inbox. Another email will be sent if you are selected for the final list of participants. This registration is on a first-come, first-served basis. Thank you!"
             ];
         });
 
