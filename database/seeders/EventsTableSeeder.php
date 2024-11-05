@@ -22,22 +22,28 @@ class EventsTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'name' => 'Training I',
-                'created_at' => '2024-08-12 08:34:26',
-                'updated_at' => '2024-08-12 08:34:26',
+                'maximum' => 1000,
+                'count' => 0,
+                'created_at' => '2024-08-12 16:34:26',
+                'updated_at' => '2024-08-13 02:06:23',
             ),
             1 => 
             array (
                 'id' => 2,
                 'name' => 'Training II',
-                'created_at' => '2024-08-12 08:34:26',
-                'updated_at' => '2024-08-12 08:34:26',
+                'maximum' => 1000,
+                'count' => 0,
+                'created_at' => '2024-08-12 16:34:26',
+                'updated_at' => '2024-08-13 03:44:36',
             ),
             2 => 
             array (
                 'id' => 3,
                 'name' => 'Training III',
-                'created_at' => '2024-08-12 08:34:44',
-                'updated_at' => '2024-08-12 08:34:44',
+                'maximum' => 1000,
+                'count' => 0,
+                'created_at' => '2024-08-12 16:34:44',
+                'updated_at' => '2024-08-13 03:26:33',
             ),
         ));
 

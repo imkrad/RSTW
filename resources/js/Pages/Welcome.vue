@@ -20,7 +20,7 @@
                                 <li class="list-inline-item text-danger fw-semibold"><i
                                         class="ri-map-pin-fill align-middle"></i> Zamboanga City :</li>
                                 <li class="list-inline-item">
-                                    <BLink href="#">September 5-6, 2024</BLink>
+                                    <BLink href="#">November 21-22, 2024</BLink>
                                 </li>
                               
                             </ul>
@@ -45,7 +45,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="alert alert-danger fs-12 alert-dismissible alert-label-icon label-arrow" role="alert"><i class="ri-error-warning-line label-icon"></i><strong>Registration is closed.</strong> All training sessions are fully booked at the moment. Unfortunately, registration is closed. Please check back later for any available openings.</div>
+                        <!-- <div class="alert alert-danger fs-12 alert-dismissible alert-label-icon label-arrow" role="alert"><i class="ri-error-warning-line label-icon"></i><strong>Registration is closed.</strong> All training sessions are fully booked at the moment. Unfortunately, registration is closed. Please check back later for any available openings.</div> -->
                         <div class="card bg-soft bg-light border shadow-none mb-3">
                             <div class="d-flex mt-1">
                                 <div class="avatar-xs align-self-center">
@@ -185,14 +185,14 @@
             <i class="ri-arrow-up-line"></i>
         </b-button>
     </div>
-    <b-modal v-model="showModal" hide-footer class="v-modal-custom" modal-class="zoomIn" body-class="p-0" centered  style="z-index: 5000;">
+    <!-- <b-modal v-model="showModal" hide-footer class="v-modal-custom" modal-class="zoomIn" body-class="p-0" centered  style="z-index: 5000;">
 
         <div class="modal-body text-center p-5">
             <div class="alert alert-danger mb-xl-0" role="alert"><strong>Registration is closed.</strong></div>
     
         </div>
-    </b-modal>
-    <!-- <BModal v-model="showModal"  style="--vz-modal-width: 1000px;" hide-footer body-class="p-0" header-class="p-0"
+    </b-modal> -->
+    <BModal v-model="showModal"  style="--vz-modal-width: 1000px;" hide-footer body-class="p-0" header-class="p-0"
         class="v-modal-custom" content-class="border-0 overflow-hidden" centered hide-header-close>
         <div class="modal-body login-modal p-5">
             <h5 class="text-white fs-18 mb-1 mt-n4">Registration Form</h5>
@@ -247,7 +247,7 @@
                </form>
             </div>
         </div>
-        <div class="modal-body border-bottom mt-n4 mb-n2" 
+        <div v-if="agree" class="modal-body border-bottom mt-n4 mb-n2" 
         style="padding-left: 3rem !important; padding-right: 3rem !important; padding-top: 3.2rem !important; padding-bottom: 1.5rem !important;" >
             <form class="customform mb-n4">
                 <template v-for="(event,index) in events" v-bind:key="index">
@@ -266,7 +266,7 @@
                 </template>
             </form>
         </div>
-        <div class="modal-body p-5">
+        <div class="modal-body p-5" v-if="agree">
             <form class="customform">
                 <BRow class="g-2 mt-n4"> 
                     <BCol lg="3" class="mt-n1">
@@ -301,7 +301,16 @@
                 </div>
             </form>
         </div>
-    </BModal> -->
+        <div class="modal-body p-5" v-else>
+            <p>To ensure that our trainings are attended by those who are genuinely interested, we are implementing a new registration policy. Those who registered for the previous training in September but did not attend on the day of the event will be given lower priority in future registrations.</p>
+
+            <p>This policy considers the many individuals who are truly interested and committed to attending. We encourage everyone to be mindful of their registration and to make the most of these valuable training opportunities. You will receive an email confirmation once the final list of participants is confirmed.</p>
+
+            <p>Thank you for your understanding and cooperation.</p>
+            <!-- Rounded with Label -->
+            <b-button @click="agree = true" pill variant="primary" class="btn-label waves-effect waves-light float-end mb-5 mt-n4"><i class="ri-user-smile-line label-icon align-middle rounded-pill fs-16 me-2"></i>Continue</b-button>
+        </div>
+    </BModal>
     <b-modal v-model="message" hide-footer class="v-modal-custom" modal-class="zoomIn" body-class="p-0" centered hide-header-close style="z-index: 5000;">
         <div class="text-end me-4">
             <button type="button" class="btn-close text-end" @click="check()"></button>
@@ -376,7 +385,8 @@ export default {
             provinces: [],
             municipalities: [],
             barangays: [],
-            tos: false
+            tos: false,
+            agree: false
         };
     },
      watch: {
@@ -449,10 +459,10 @@ export default {
             document.documentElement.scrollTop = 0;
         },
         isDisabled(eventId) {
-           if (eventId === 1) {
-            return this.form.lists.includes(2) || this.form.lists.includes(3);
+           if (eventId === 2) {
+            return this.form.lists.includes(1) || this.form.lists.includes(3);
             }
-            return this.form.lists.includes(1);
+            return this.form.lists.includes(2);
         },
         hide(){
             this.showModal = false;
