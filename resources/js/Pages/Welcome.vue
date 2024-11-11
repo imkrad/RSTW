@@ -18,7 +18,7 @@
 
                             <ul class="treding-keywords list-inline mb-0 mt-3 fs-13">
                                 <li class="list-inline-item text-danger fw-semibold"><i
-                                        class="ri-map-pin-fill align-middle"></i>Grand Astsoria Hotel, Zamboanga City :</li>
+                                        class="ri-map-pin-fill align-middle"></i> Grand Astsoria Hotel, Zamboanga City :</li>
                                 <li class="list-inline-item">
                                     <BLink href="#">November 21-22, 2024</BLink>
                                 </li>
