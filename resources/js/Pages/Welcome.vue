@@ -20,7 +20,7 @@
                                 <li class="list-inline-item text-danger fw-semibold"><i
                                         class="ri-map-pin-fill align-middle"></i> Grand Astsoria Hotel, Zamboanga City :</li>
                                 <li class="list-inline-item">
-                                    <span class="fw-semibold">November 21-22, 2024</span>
+                                    <span class="fw-semibold text-primary">November 21-22, 2024</span>
                                 </li>
                               
                             </ul>
